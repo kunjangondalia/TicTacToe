@@ -25,7 +25,12 @@ public class Game {
     }
 
     public static GameBuilder getBuilder(){
+
         return new GameBuilder();
+    }
+
+    public void displayBoard(){
+        board.displayBoard();
     }
 
     public static class GameBuilder{

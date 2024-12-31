@@ -16,6 +16,14 @@ public class Board {
         }
     }
 
+    public void displayBoard(){
+        for(List<Cell> row: grid){
+            for(Cell cell : row){
+                cell.displayCell();
+            }
+            System.out.println();
+        }
+    }
     public List<List<Cell>> getGrid() {
         return grid;
     }

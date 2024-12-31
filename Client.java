@@ -31,7 +31,7 @@ public class Client {
 
         while(gameController.getGameState(game).equals(GameState.IN_PROCESS)){
             gameController.display(game);
-            gameController.makeMove(game);
+//            gameController.makeMove(game);
             /*
                     makeMove
                     take the input to make the move

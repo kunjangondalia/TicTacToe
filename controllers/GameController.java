@@ -9,12 +9,23 @@ public class GameController {
             List<Player> players,
             List<WinningStratergy> winningStrategies
     ){
-        return new Game(size,players,winningStrategies);
+        try{
+            return Game.getBuilder()
+                    .setSize(size)
+                    .setPlayers(players)
+                    .setWinningStrategies(winningStrategies)
+                    .build();
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Sorry. Please Try again with a valid input");
+        }
+        return null;
     }
 
     public GameState getGameState(Game game){
 
-        return GameState.IN_PROCESS;
+        return game.getGameState();
     }
 
     public void display(Game game){
@@ -22,7 +33,7 @@ public class GameController {
     }
 
     public void makeMove(Game game){
-
+        game.makeMove();
     }
 
     public void undo(Game game){
@@ -30,6 +41,6 @@ public class GameController {
     }
 
     public Player getWinner(Game game){
-        return null;
+        return game.getWinner();
     }
 }

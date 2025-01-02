@@ -3,6 +3,15 @@ import java.util.*;
 
 public class Board {
     private List<List<Cell>> grid;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     private int size;
 
     public Board(int size){

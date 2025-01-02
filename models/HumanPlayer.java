@@ -8,6 +8,7 @@ public class HumanPlayer extends Player{
 
     public HumanPlayer(Integer id, String name, Symbol symbol){
         super(id,name,PlayerType.HUMAN_PLAYER,symbol);
+        scanner = new Scanner(System.in);
         this.level = 1;
         this.coins = 0;
     }

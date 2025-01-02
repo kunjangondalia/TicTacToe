@@ -33,9 +33,11 @@ public class Client {
                 winningStrategies
         );
 
+        gameController.display(game);
+
         while(gameController.getGameState(game).equals(GameState.IN_PROCESS)){
-            gameController.display(game);
             gameController.makeMove(game);
+            gameController.display(game);
             /*
                     makeMove
                     take the input to make the move

@@ -2,6 +2,8 @@ package TicTacToe;
 
 import TicTacToe.controllers.GameController;
 import TicTacToe.models.*;
+import TicTacToe.stratergy.ColWinningStratergy;
+import TicTacToe.stratergy.RowWinningStratergy;
 import TicTacToe.stratergy.WinningStratergy;
 
 import java.util.*;
@@ -22,6 +24,8 @@ public class Client {
         int size = 3;
 
         List<WinningStratergy> winningStrategies = new ArrayList<>();
+        winningStrategies.add(new RowWinningStratergy());
+        winningStrategies.add(new ColWinningStratergy());
 
         Game game = gameController.startGame(
                 size,

@@ -9,6 +9,7 @@ import TicTacToe.stratergy.WinningStratergy;
 import java.util.*;
 
 public class Client {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String args[]){
         GameController gameController = new GameController();
         /*
@@ -44,6 +45,13 @@ public class Client {
                     update the gameState if required
                     update the turn
              */
+            System.out.println("Do you want to Undo? [Y/N]");
+            String undoAnswer = scanner.nextLine();
+            if(undoAnswer.equals("Y")){
+                gameController.undo(game);
+                System.out.println("Undo Successful");
+                gameController.display(game);
+            }
         }
 
         if(gameController.getGameState(game).equals(GameState.SUCCESS)){

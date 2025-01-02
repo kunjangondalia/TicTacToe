@@ -24,6 +24,30 @@ public class Game {
         this.moves = new ArrayList<>();
     }
 
+    public void undo(){
+
+        if(moves.size()==0){
+            System.out.println("There is nothing to Undo!");
+            return;
+        }
+
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(moves.size()-1);
+
+        lastMove.getCell().setCellState(CellState.EMPTY);
+        lastMove.getCell().setSymbol(null);
+
+        nextPlayerIndex--;
+        nextPlayerIndex = (nextPlayerIndex + players.size()) % players.size();
+
+        for(WinningStratergy winningStrategy:winningStrategies){
+            winningStrategy.handleUndo(board,lastMove);
+        }
+
+        setGameState(GameState.IN_PROCESS);
+        setWinner(null);
+    }
+
     private boolean validateMove(Move move){
 
         int row = move.getCell().getRow();
